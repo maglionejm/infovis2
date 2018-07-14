@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+<!-- load D3js -->
+<script src="//d3plus.org/js/d3.js"></script>
+
+<!-- load D3plus after D3js -->
+<script src="//d3plus.org/js/d3plus.js"></script>
+
+<!-- create container element for visualization -->
+<div id="viz"></div>
+
+<script>
+  // sample data array
+  var url = "https://raw.githubusercontent.com/aaizemberg/vis/gh-pages/graduados/data.tsv";
+  
+  // instantiate d3plus
+  var visualization = d3plus.viz()
+    .container("#viz")  // container DIV to hold the visualization
+    .data(url)  // data to use with the visualization
+    .type('box')    // visualization type
+    .size ("cant")
+    .id("titulo")         // key for which our data is unique on
+    .text("titulo")       // key to use for display text
+    .y("cant")         // key to use for y-axis
+    .x("año")          // key to use for x-axis
+    .time("año")       // key to use for time
+    .shape({'interpolate':'basis'})
+    .draw()             // finally, draw the visualization!
+</script>
+</body>
+</html>
